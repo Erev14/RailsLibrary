@@ -1,0 +1,17 @@
+<%= form_for @author, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <center>
+  <p><label for = "author_name">Nombre</label>:
+  <%= f.text_field :name %>
+  <p><label for = "father_last_name">Apellido Paterno</label>:
+  <%= f.text_field :father_last_name %>
+  <p><label for = "mother_last_name">Apellido Materno</label>:
+  <%= f.text_field :mother_last_name %>
+  <p><label for = "nationality">Nacionalidad</label>:
+  <%= f.text_field :nationality %>
+  <p><label for = "historical_review">Reseña Histórica</label>:
+  <br>
+  <%= f.text_area :historical_review, size: "60x12" %>
+  <br>
+  <%= f.submit "Create" %>
+  </center>
+<% end %>

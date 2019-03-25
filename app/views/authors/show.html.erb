@@ -1,0 +1,35 @@
+<center>
+  <h1>
+    <strong>Nombre: </strong> <%= @author.name %>
+    <%= @author.father_last_name %><br />
+    <%= @author.mother_last_name %><br />
+  </h1>
+</center>
+
+<p>
+   <strong>Nacionalidad:</strong> <%= @author.nationality %><br />
+</p>
+<strong>Reseña Histórica:</strong>
+<center>
+  <p><%= @author.historical_review %><p>
+</center>
+
+<% if @author.books.blank? %>
+<p>There are not any books currently in the system.</p>
+<% else %>
+<p>These are the current books in our system</p>
+
+<div id = "books" style="width:100%;display: table;">
+   <% @author.books.each do |book| %>
+    <div style="display: table-row;">
+      <div style="text-align:center;display: table-cell;"><%= link_to book.title, {:action => 'show', :id => book.id} -%></div>
+      <div style="text-align:center;display: table-cell;"><%= book.edition_year -%></div>
+      <div style="text-align:center;display: table-cell;"><%= book.edition_number -%></div>
+      <div style="text-align:center;display: table-cell;"><%= book.ISBN -%></div>
+    </div>
+   <% end %>
+</div>
+
+<% end %>
+<hr />
+<%= link_to 'Back', {:action => 'list'} %>
