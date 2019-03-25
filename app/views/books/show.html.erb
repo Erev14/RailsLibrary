@@ -1,0 +1,16 @@
+<center>
+  <h1>
+    <strong>Titulo: </strong> <%= @book.title %>
+  </h1>
+  <strong>Editirial: </strong> <%= @book.editorial %>
+  <br>
+  <strong>Año de Edición: </strong> <%= @book.edition_year %>
+  <br>
+  <strong>Numero de Edición: </strong> <%= @book.edition_number %>
+  <br>
+  <strong>ISBN: </strong> <%= @book.ISBN %>
+  <br>
+  <strong>Author: </strong> <%= @book.author.name_with_initial %>
+  <br>
+  <strong>Estante: </strong> <%= @book.book_case.level_hall %>
+</center>

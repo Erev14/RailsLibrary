@@ -1,0 +1,26 @@
+<%= form_for @book, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <center>
+    <p><label for = "book_title">Title</label>:
+    <%= f.text_field :title %></p>
+
+    <p><label for = "book_editorial">Editorial</label>:
+    <%= f.text_field :editorial %></p>
+
+    <p><label for = "book_edition_year">Año de Edición</label>:
+    <%= f.text_field :edition_year %></p>
+
+    <p><label for = "book_edition_number">Numero de Edición</label>:
+    <%= f.text_field :edition_number %></p>
+
+    <p><label for = "book_ISBN">ISBN</label>:
+    <%= f.text_field :ISBN %></p>
+
+    <p><label for = "book_author">Autor</label><br/>
+    <%= f.collection_select :author_id, @authors, :id, :name_with_initial %>
+
+    <p><label for = "book_case">Estante</label><br/>
+    <%= f.collection_select :book_case_id, @book_cases, :id, :level_hall %>
+  <br>
+  <%= f.submit "Create" %>
+  </center>
+<% end %>
