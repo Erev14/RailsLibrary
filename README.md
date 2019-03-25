@@ -1,24 +1,66 @@
 # README
+___
+## Instalation steps:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+On the terminal:  
+### 1. Clone the repository:
+` git clone https://github.com/Erev14/RailsLibrary.git `
 
-* Ruby version
+### 2. Move to the directory
 
-* System dependencies
+### 3. Create the database:
+  - On MySQL:  
+    1. Uncomment gem 'mysql2' on the Gemfile
+    2. Create database for **development**  
+           create database library_development;
+           grant all privileges on library_development.*
+           FLUSH PRIVILEGES;
+    3. Create database for **production**
+           create database library_production;
+           grant all privileges on library_production.*
+           FLUSH PRIVILEGES;
+    4. Create database for **test**
+           create database library_test;
+           grant all privileges on library_test.*
+           FLUSH PRIVILEGES;
 
-* Configuration
+  - On PostgerSQL:  
+    1. Uncomment gem 'pg'
+    2. ` sudo -u postgres createuser rubyuser -s `  
+    If you want to create a password for the new user, then use the following command.
+    ` sudo -u postgres psql `  
+    3. Create database for **development**
+           CREATE DATABASE library_development OWNER rubyuser;
+    2. Create database for **production**
+           CREATE DATABASE library_development OWNER rubyuser;
+    4. Create database for **test**
+           CREATE DATABASE library_development OWNER rubyuser;
 
-* Database creation
+### 3. Install all dependencies:  
+  ` bundle install ` or ` bundle update `  
+### 4. Make migrations:
+  - migrate all:
+        export RAILS_ENV = production
+        rake db:migrate
+        export RAILS_ENV = test
+        rake db:migrate
+        export RAILS_ENV = development
+        rake db:migrate
 
-* Database initialization
+  - migrate to production:  
+        export RAILS_ENV = production
+        rake db:migrate
 
-* How to run the test suite
+  - migrate to development:  
+        export RAILS_ENV = development
+        rake db:migrate
+  - migrate to test:
+        export RAILS_ENV = test
+        rake db:migrate
+ **NOTE** − In Windows, use "set RAILS_ENV = production" instead of export command.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+### run the server  
+` bundle exec rake server ` or ` rails server `

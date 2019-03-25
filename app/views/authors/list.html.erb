@@ -1,0 +1,18 @@
+<% if @authors.blank? %>
+<p>There are not any authors currently in the system.</p>
+<% else %>
+<p>These are the current authors in our system</p>
+
+<div id = "authors" style="width:100%;display: table;">
+   <% @authors.each do |author| %>
+    <div style="display: table-row;">
+      <div style="text-align:center;display: table-cell;">Autor <%= author.id -%></div>
+      <div style="text-align:center;display: table-cell;"><%= link_to author.name, {:action => 'show', :id => author.id} -%></div>
+      <div style="text-align:center;display: table-cell;"><%= author.father_last_name -%></div>
+      <div style="text-align:center;display: table-cell;"><%= author.mother_last_name -%></div>
+    </div>
+   <% end %>
+</div>
+
+<% end %>
+<p><%= link_to "Add new autor", {:action => 'new' }%></p>

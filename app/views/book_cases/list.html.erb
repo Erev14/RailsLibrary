@@ -1,0 +1,16 @@
+<% if @book_cases.blank? %>
+<p>There are not any book cases currently in the system.</p>
+<% else %>
+<p>These are the current book cases in our system</p>
+
+<div id = "book_cases" style="width:100%;display: table;align:left;">
+   <% @book_cases.each do |bookcase| %>
+    <div style="display: table-row;">
+      <div style="text-align:center;display: table-cell;">Estante <%= link_to bookcase.hall, {:action => 'show', :id => bookcase.id} -%></div>
+      <div style="text-align:center;display: table-cell;"><%= bookcase.level -%></div>
+    </div>
+   <% end %>
+</div>
+
+<% end %>
+<p><%= link_to "Add new book case", {:action => 'new' }%></p>
