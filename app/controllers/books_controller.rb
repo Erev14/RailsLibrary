@@ -7,20 +7,28 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.includes(:author, :book_case).find(params[:id])
   end
 
   def new
     @book = Book.new
+    @authors = Author.all
+    @book_cases = BookCase.all
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(books_params)
     if @book.save
       redirect_to action: 'list'
     else
-      @subjects = Subject.all
+      @author = Author.all
+      @book_cases = BookCases.all
       render action: 'new'
     end
+  end
+
+  def books_params
+    params.require(:book).permit(:title, :editorial, :edition_year,
+                                   :edition_number, :ISBN, :author_id, :book_case_id)
   end
 end
