@@ -5,7 +5,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :editorial, limit: 250, null: false
       t.string :edition_year, limit: 4
       t.string :edition_number, limit: 25
-      t.string :ISBN, limit: 25, null: false, index: true
+      t.string :ISBN, limit: 13, null: false, index: true
       t.references :author, foreign_key: true
       t.references :book_case, foreign_key: true
       t.timestamps
