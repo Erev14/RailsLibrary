@@ -1,0 +1,10 @@
+<%= form_for @book_case, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <center>
+  <p><label for = "hall">Estante</label>:
+  <%= f.text_field :hall %>
+  <p><label for = "level">nivel</label>:
+  <%= f.text_field :level %>
+  <br>
+  <%= f.submit "Create" %>
+  </center>
+<% end %>
