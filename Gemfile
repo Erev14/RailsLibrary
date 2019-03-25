@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -12,7 +14,6 @@ gem 'sqlite3', '~> 1.3.6'
 # gem 'mysql2'
 # use postgres as the database
 # gem 'pg'
-
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
